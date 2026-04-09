@@ -1,5 +1,7 @@
 # Plavba s chárby
 
+https://martinslaby70.github.io/cruise-presentation/
+
 Interactive cruise presentation — a visual slideshow pitching a Mediterranean cruise adventure to friends.
 
 ## Controls
