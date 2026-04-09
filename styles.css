@@ -1,0 +1,1248 @@
+/* ========================================
+   Cruise Presentation — Styles
+   ======================================== */
+
+/* ----- 1. Design Tokens ----- */
+:root {
+  --color-navy-deep: #0A1628;
+  --color-navy: #122240;
+  --color-navy-light: #1B3A5C;
+  --color-gold: #C9A84C;
+  --color-gold-light: #E2C97E;
+  --color-cream: #F0E6D3;
+  --color-white: #FAFAF7;
+  --color-sea-accent: #2E7D8C;
+
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', Roboto, sans-serif;
+
+  --slide-transition-duration: 0.8;
+  --total-slides: 8;
+}
+
+/* ----- 2. Reset & Base ----- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-navy-deep);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-navy-deep);
+}
+
+/* ----- 3. Presentation Container ----- */
+.presentation {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* ----- 4. Slide Track ----- */
+.slide-track {
+  display: flex;
+  width: calc(100vw * var(--total-slides));
+  height: 100vh;
+  will-change: transform;
+}
+
+/* ----- 5. Slides (shared) ----- */
+.slide {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-navy-deep);
+  overflow: hidden;
+}
+
+.slide__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ----- 6. Title Slide ----- */
+.slide--title {
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    var(--color-navy) 0%,
+    var(--color-navy-deep) 70%
+  );
+}
+
+.slide--title .slide__ornament {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  filter: grayscale(0.3);
+}
+
+.slide--title .slide__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  color: var(--color-white);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  /* Water mask — always set, revealed by animating color to transparent */
+  background-image: url('assets/water.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.slide--title .slide__divider {
+  width: clamp(80px, 15vw, 200px);
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold) 20%,
+    var(--color-gold) 80%,
+    transparent
+  );
+  margin: 1.5rem 0;
+  transform-origin: center;
+}
+
+.slide--title .slide__subtitle {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--color-gold-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ----- 6b. Intro Slide (Slide 1) ----- */
+.slide--intro {
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    var(--color-navy) 0%,
+    var(--color-navy-deep) 70%
+  );
+}
+
+.intro__layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 4rem 6vw;
+  gap: 4vw;
+}
+
+.intro__left {
+  flex: 1;
+  max-width: 550px;
+  text-align: left;
+}
+
+.intro__right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 50%;
+}
+
+.intro__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+}
+
+.intro__text {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  color: var(--color-cream);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.intro__text strong {
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.intro__ship {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.5));
+  transform-origin: center bottom;
+}
+
+.intro__cliffhanger {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  color: var(--color-gold-light);
+  letter-spacing: 0.02em;
+}
+
+/* ----- 6c. Water Slide (Slide 2) ----- */
+.slide--water {
+  background: radial-gradient(
+    ellipse at 50% 30%,
+    #0f2a4a 0%,
+    var(--color-navy-deep) 75%
+  );
+}
+
+.water__layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5vh 6vw 4vh;
+  overflow: hidden;
+}
+
+.water__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  color: var(--color-gold);
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+.water__subtitle {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  color: var(--color-cream);
+  opacity: 0.6;
+  margin-bottom: 3vh;
+  text-align: center;
+}
+
+.water__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+  width: 100%;
+  max-width: 1000px;
+  flex: 1;
+  align-content: center;
+}
+
+.water__card {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(18, 34, 64, 0.8) 0%,
+    rgba(27, 58, 92, 0.4) 100%
+  );
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+/* Background image layer via ::before */
+.water__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 15s ease 0s;
+  z-index: 0;
+}
+
+.water__card:hover::before {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* Dark gradient overlay — stronger at top for title readability */
+.water__card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.85) 0%,
+    rgba(10, 22, 40, 0.2) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 15s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.water__card:hover::after {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* Per-card background images */
+.water__card[data-card="1"]::before { background-image: url('assets/pool.avif'); }
+.water__card[data-card="2"]::before { background-image: url('assets/pools.webp'); }
+.water__card[data-card="3"]::before { background-image: url('assets/surfing.webp'); }
+.water__card[data-card="4"]::before { background-image: url('assets/hottubs.jpeg'); }
+.water__card[data-card="5"]::before { background-image: url('assets/sauna.jpg'); }
+.water__card[data-card="6"]::before { background-image: url('assets/sun-bathing.webp'); }
+
+.water__card:hover {
+  border-color: rgba(201, 168, 76, 0.5);
+}
+
+.water__icon {
+  position: relative;
+  z-index: 1;
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  transition: opacity 15s ease, transform 15s ease;
+}
+
+.water__card:hover .water__icon {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.water__card-title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  color: var(--color-gold-light);
+  margin-bottom: 0.5rem;
+  transition: transform 15s ease, color 15s ease;
+}
+
+.water__card:hover .water__card-title {
+  transform: translateY(calc(-100% - 1.5rem));
+  color: var(--color-white);
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.water__card-text {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  color: var(--color-cream);
+  line-height: 1.5;
+  opacity: 0.8;
+  transition: opacity 15s ease;
+}
+
+.water__card:hover .water__card-text {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.water__footer {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  color: var(--color-gold);
+  margin-top: 3vh;
+  letter-spacing: 0.02em;
+}
+
+/* ----- 6d. Ports / Timeline Slide (Slide 3) ----- */
+.slide--ports {
+  background: var(--color-navy-deep);
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5vh;
+}
+
+.ports__title {
+  position: relative;
+  z-index: 10;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--color-gold);
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
+.ports__intro {
+  position: relative;
+  z-index: 10;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  color: var(--color-cream);
+  opacity: 0.6;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+/* Viewport: the visible window */
+.ports__viewport {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  max-width: 950px;
+  overflow: hidden;
+}
+
+/* Central vertical line — fades at both ends */
+.ports__line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-gold) 0%,
+    var(--color-gold) 95%,
+    transparent 100%
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Skipped stops indicator (three dots on the line) */
+.ports__skipped {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 5;
+  padding: 10px 0;
+}
+
+.ports__skipped-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+
+/* Each stop — absolutely positioned, GSAP controls top */
+.ports__stop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Image circle centered on the line */
+.ports__image-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid var(--color-gold);
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  background-color: var(--color-navy);
+  flex-shrink: 0;
+}
+
+.ports__image-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Info block */
+.ports__info {
+  width: calc(50% - 60px);
+}
+
+.ports__time {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--color-sea-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.ports__city {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--color-gold-light);
+  margin-bottom: 0.3rem;
+}
+
+.ports__desc {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  color: var(--color-cream);
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+/* Right-side stops: info on the right of the line */
+.ports__stop--right .ports__info {
+  position: absolute;
+  left: calc(50% + 55px);
+  text-align: left;
+}
+
+/* Left-side stops: info on the left of the line */
+.ports__stop--left .ports__info {
+  position: absolute;
+  right: calc(50% + 55px);
+  text-align: right;
+}
+
+
+/* ----- 6e. Price Slide (Slide 4) ----- */
+.slide--price {
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    #0f2240 0%,
+    var(--color-navy-deep) 75%
+  );
+}
+
+.price__layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 4vh 5vw 3vh;
+  overflow: hidden;
+}
+
+.price__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  color: var(--color-gold);
+  margin-bottom: 0.3rem;
+}
+
+.price__subtitle {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  color: var(--color-cream);
+  opacity: 0.6;
+  margin-bottom: 3.5vh;
+}
+
+/* Price cards row */
+.price__cards {
+  display: flex;
+  gap: 2vw;
+  width: 100%;
+  max-width: 1000px;
+  justify-content: center;
+  margin-bottom: 3vh;
+}
+
+.price__card {
+  flex: 1;
+  max-width: 300px;
+  background: linear-gradient(
+    160deg,
+    rgba(18, 34, 64, 0.9) 0%,
+    rgba(27, 58, 92, 0.35) 100%
+  );
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  border-radius: 14px;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.price__card--featured {
+  border-color: var(--color-gold);
+  transform: scale(1.04);
+  box-shadow: 0 0 30px rgba(201, 168, 76, 0.12);
+}
+
+.price__badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+  background-color: rgba(201, 168, 76, 0.15);
+  color: var(--color-gold-light);
+}
+
+.price__card--featured .price__badge {
+  background-color: var(--color-gold);
+  color: var(--color-navy-deep);
+}
+
+.price__tier {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  color: var(--color-cream);
+  margin-bottom: 0.6rem;
+}
+
+.price__amount {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.price__per {
+  font-size: 0.45em;
+  font-weight: 400;
+  color: var(--color-cream);
+  opacity: 0.5;
+}
+
+.price__note {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  color: var(--color-cream);
+  opacity: 0.7;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  min-height: 3em;
+}
+
+/* Value bar */
+.price__value {
+  margin-top: auto;
+}
+
+.price__value-label {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.65rem;
+  color: var(--color-cream);
+  opacity: 0.4;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.price__bar {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.price__bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--color-sea-accent), var(--color-gold));
+  transition: width 0.8s ease;
+}
+
+/* Includes section */
+.price__includes {
+  display: flex;
+  gap: 4vw;
+  width: 100%;
+  max-width: 750px;
+}
+
+.price__inc-col {
+  flex: 1;
+}
+
+.price__inc-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  margin-bottom: 0.6rem;
+}
+
+.price__inc-title--yes {
+  color: var(--color-sea-accent);
+}
+
+.price__inc-title--no {
+  color: var(--color-gold);
+  opacity: 0.6;
+}
+
+.price__inc-list {
+  list-style: none;
+  padding: 0;
+}
+
+.price__inc-list li {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  color: var(--color-cream);
+  opacity: 0.75;
+  padding: 0.3rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.price__inc-title--yes + .price__inc-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-sea-accent);
+  font-weight: 600;
+}
+
+.price__inc-title--no + .price__inc-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  opacity: 0.4;
+}
+
+/* ----- 6f. Casino Slide (Slide 5) ----- */
+.slide--casino {
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    #1a0a2e 0%,
+    var(--color-navy-deep) 70%
+  );
+}
+
+.casino__layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 4vh 5vw;
+  gap: 3vh;
+}
+
+.casino__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  color: var(--color-cream);
+  text-align: center;
+  font-style: italic;
+}
+
+.casino__subtitle {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  color: var(--color-gold-light);
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* Slot machine */
+.casino__machine {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.casino__body {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #2a1a3e 0%, #1a0f28 100%);
+  border: 3px solid var(--color-gold);
+  border-radius: 16px;
+  padding: 20px 25px;
+  box-shadow:
+    0 0 20px rgba(201, 168, 76, 0.15),
+    inset 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.casino__display {
+  display: flex;
+  gap: 8px;
+}
+
+/* Each reel viewport — shows exactly 1 symbol */
+.casino__reel {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  border: 2px solid rgba(201, 168, 76, 0.3);
+  position: relative;
+}
+
+/* The strip of symbols — scrolled by GSAP */
+.casino__strip {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.casino__strip span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+/* Lever */
+.casino__lever {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+  position: relative;
+}
+
+.casino__lever-stick {
+  width: 6px;
+  height: 60px;
+  background: linear-gradient(180deg, #888, #555);
+  border-radius: 3px;
+  transform-origin: bottom center;
+}
+
+.casino__lever-knob {
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 35% 35%, #e44, #a11);
+  border-radius: 50%;
+  margin-top: -2px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  position: relative;
+  top: -60px;
+}
+
+/* Jackpot text */
+.casino__jackpot {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-gold);
+  text-align: center;
+  margin-top: 1.5rem;
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.6);
+}
+
+@keyframes jackpotPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 10px rgba(201, 168, 76, 0.4),
+      0 0 30px rgba(201, 168, 76, 0.2);
+  }
+  50% {
+    text-shadow:
+      0 0 20px rgba(201, 168, 76, 0.8),
+      0 0 60px rgba(201, 168, 76, 0.4),
+      0 0 100px rgba(201, 168, 76, 0.2);
+  }
+}
+
+.casino__jackpot--active {
+  animation: jackpotPulse 1.5s ease-in-out infinite;
+}
+
+/* Tips list */
+.casino__tips {
+  list-style: none;
+  padding: 0;
+  max-width: 650px;
+  text-align: left;
+}
+
+.casino__tips li {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  color: var(--color-cream);
+  padding: 0.4rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.casino__tips li::before {
+  content: '🎰';
+  position: absolute;
+  left: 0;
+  font-size: 0.9em;
+}
+
+/* ----- 6g. Food & Drink Slide (Slide 6) ----- */
+.slide--food {
+  background: radial-gradient(
+    ellipse at 40% 50%,
+    #0f2240 0%,
+    var(--color-navy-deep) 75%
+  );
+}
+
+.food__layout {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 4vh 5vw;
+  gap: 4vw;
+  overflow: hidden;
+}
+
+/* Left column — food info */
+.food__left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 440px;
+}
+
+.food__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--color-gold);
+  margin-bottom: 2.5vh;
+}
+
+.food__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.food__section-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  color: var(--color-sea-accent);
+  margin-bottom: 0.5rem;
+}
+
+.food__section-title--extra {
+  color: var(--color-gold);
+  opacity: 0.7;
+}
+
+.food__list {
+  list-style: none;
+  padding: 0;
+}
+
+.food__list li {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  color: var(--color-cream);
+  opacity: 0.8;
+  padding: 0.25rem 0 0.25rem 1.2rem;
+  position: relative;
+  line-height: 1.4;
+}
+
+.food__free .food__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-sea-accent);
+  font-weight: 600;
+}
+
+.food__extra .food__list li::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  opacity: 0.5;
+  font-weight: 600;
+}
+
+/* Right column — beer timeline */
+.food__right {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.food__day-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  color: var(--color-gold-light);
+  margin-bottom: 1.5vh;
+  text-align: center;
+}
+
+.food__timeline {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+}
+
+.food__event {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.45rem 0.8rem;
+  border-left: 2px solid rgba(201, 168, 76, 0.2);
+  position: relative;
+}
+
+.food__event::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+  opacity: 0.5;
+}
+
+.food__time {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--color-sea-accent);
+  min-width: 38px;
+  letter-spacing: 0.03em;
+}
+
+.food__desc {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.78rem, 1vw, 0.9rem);
+  color: var(--color-cream);
+  flex: 1;
+  opacity: 0.85;
+}
+
+.food__beer {
+  font-size: 1.1rem;
+  min-width: 30px;
+  text-align: right;
+}
+
+.food__total {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: var(--color-gold);
+  text-align: center;
+  margin-top: 1vh;
+  padding-top: 1vh;
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+/* ----- 6h. Finale Slide (Slide 7) ----- */
+.slide--finale {
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    var(--color-navy) 0%,
+    var(--color-navy-deep) 70%
+  );
+}
+
+.finale__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: var(--color-gold);
+  text-align: center;
+  line-height: 1.2;
+  max-width: 700px;
+}
+
+/* ----- 7. Content Slides ----- */
+.slide--content {
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    var(--color-navy) 0%,
+    var(--color-navy-deep) 80%
+  );
+}
+
+.slide--content .slide__number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(8rem, 20vw, 18rem);
+  color: var(--color-gold);
+  opacity: 0.06;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.slide--content .slide__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--color-cream);
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 2;
+}
+
+.slide--content .slide__heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: 1rem auto 0;
+  opacity: 0.6;
+}
+
+/* ----- 8. Progress Bar ----- */
+.progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.05);
+  z-index: 100;
+}
+
+.progress__bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-sea-accent), var(--color-gold));
+  will-change: width;
+}
+
+/* ----- 9. Slide Counter ----- */
+.slide-counter {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 2rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--color-cream);
+  opacity: 0.4;
+  z-index: 100;
+  letter-spacing: 0.1em;
+}
+
+/* ----- 10. Navigation Hint ----- */
+.nav-hint {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.3;
+  z-index: 100;
+  transition: opacity 0.3s ease;
+}
+
+.nav-hint__key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-cream);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--color-cream);
+  font-family: var(--font-body);
+}
+
+.nav-hint__text {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-cream);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ----- 11. Subtle background texture ----- */
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(46, 125, 140, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(201, 168, 76, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}

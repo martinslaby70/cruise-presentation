@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prezentace - Plavba</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="presentation" id="presentation">
+      <div class="slide-track" id="slideTrack">
+        <!-- Title Slide -->
+        <section class="slide slide--title" data-slide="0">
+          <div class="slide__content">
+            <div class="slide__ornament">&#9875;</div>
+            <h1 class="slide__heading">Plavba s chárby</h1>
+            <div class="slide__divider"></div>
+            <p class="slide__subtitle">Dobrodružství na moři čeká</p>
+          </div>
+        </section>
+
+        <!-- Slide 1: Něco pro každého -->
+        <section class="slide slide--intro" data-slide="1">
+          <div class="intro__layout">
+            <div class="intro__left">
+              <h2 class="intro__title">Něco pro každého z nás</h2>
+              <p class="intro__text">
+                Jídlo, co nemá chybu. Bazén na horním palubě.<br />
+                Párty do rána. Výlety na místa, kde jsme ještě nebyli.<br />
+                A hlavně&nbsp;— <strong>pět dní bez starostí, spolu.</strong>
+              </p>
+              <p class="intro__cliffhanger">Koukněte, co nás tam čeká&nbsp;&#8594;</p>
+            </div>
+            <div class="intro__right">
+              <img class="intro__ship" src="assets/cruise-ship.webp" alt="Výletní loď" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 2: Vodní svět -->
+        <section class="slide slide--water" data-slide="2">
+          <div class="water__layout">
+            <h2 class="water__title">Vodní svět na palubě</h2>
+            <p class="water__subtitle">Tady se nikdo nudit nebude.</p>
+            <div class="water__grid">
+              <div class="water__card" data-card="1">
+                <span class="water__icon">&#127946;</span>
+                <h3 class="water__card-title">Bazény</h3>
+                <p class="water__card-text">Infinity pool s výhledem na oceán. Jo, fakt.</p>
+              </div>
+              <div class="water__card" data-card="2">
+                <span class="water__icon">&#127940;</span>
+                <h3 class="water__card-title">Tobogány</h3>
+                <p class="water__card-text">Až 10 pater dolů. Křičet se nemusí, ale bude se.</p>
+              </div>
+              <div class="water__card" data-card="3">
+                <span class="water__icon">&#127940;</span>
+                <h3 class="water__card-title">Surfing</h3>
+                <p class="water__card-text">
+                  FlowRider simulátor přímo na lodi. Prkno je připravený.
+                </p>
+              </div>
+              <div class="water__card" data-card="4">
+                <span class="water__icon">&#9832;</span>
+                <h3 class="water__card-title">Vířivky</h3>
+                <p class="water__card-text">
+                  Bubliny, drink v ruce, západ slunce. Víc nepotřebuješ.
+                </p>
+              </div>
+              <div class="water__card" data-card="5">
+                <span class="water__icon">&#128167;</span>
+                <h3 class="water__card-title">Sauna &amp; Spa</h3>
+                <p class="water__card-text">Finská sauna, parní lázeň, masáže. Reset na maximum.</p>
+              </div>
+              <div class="water__card" data-card="6">
+                <span class="water__icon">&#9728;</span>
+                <h3 class="water__card-title">Opalování</h3>
+                <p class="water__card-text">
+                  Lehátka na horní palubě, drink v ruce, slunce celý den. Nic víc, nic míň.
+                </p>
+              </div>
+            </div>
+            <p class="water__footer">A to jsme teprve začali...</p>
+          </div>
+        </section>
+
+        <!-- Slide 3: Itinerář -->
+        <section class="slide slide--ports" data-slide="3">
+          <h2 class="ports__title">Kam nás to zavede?</h2>
+          <p class="ports__intro">Kdo říkal, že budeme celou dobu na lodi? Tady je plán.</p>
+
+          <div class="ports__viewport">
+            <div class="ports__line"></div>
+
+            <div class="ports__skipped" id="portsSkipped">
+              <span class="ports__skipped-dot"></span>
+              <span class="ports__skipped-dot"></span>
+              <span class="ports__skipped-dot"></span>
+            </div>
+
+            <div class="ports__stop ports__stop--right" data-stop="0">
+              <div class="ports__image-circle">
+                <img src="assets/barcelona.webp" alt="Barcelona" />
+              </div>
+              <div class="ports__info">
+                <span class="ports__time">Den 1 · 16:00 odplutí</span>
+                <h3 class="ports__city">Barcelona</h3>
+                <p class="ports__desc">
+                  Start cesty. Sagrada Família, tapas, sangria — a pak na palubu. Adios!
+                </p>
+              </div>
+            </div>
+
+            <div class="ports__stop ports__stop--left" data-stop="1">
+              <div class="ports__image-circle">
+                <img src="assets/mallorca.jpeg" alt="Palma de Mallorca" />
+              </div>
+              <div class="ports__info">
+                <span class="ports__time">Den 2 · 8:00 – 18:00</span>
+                <h3 class="ports__city">Palma de Mallorca</h3>
+                <p class="ports__desc">
+                  Tyrkysový moře, katedrála přímo u přístavu. 10 hodin na prozkoumání ostrova.
+                </p>
+              </div>
+            </div>
+
+            <div class="ports__stop ports__stop--right" data-stop="2">
+              <div class="ports__image-circle">
+                <img src="assets/valencia.jpg" alt="Valencia" />
+              </div>
+              <div class="ports__info">
+                <span class="ports__time">Den 3 · 7:00 – 17:00</span>
+                <h3 class="ports__city">Valencia</h3>
+                <p class="ports__desc">
+                  Město umění a věd, paella přímo z pánve na ulici. Originál, ne ta z mrazáku.
+                </p>
+              </div>
+            </div>
+
+            <div class="ports__stop ports__stop--left" data-stop="3">
+              <div class="ports__image-circle"><img src="assets/malaga.webp" alt="Málaga" /></div>
+              <div class="ports__info">
+                <span class="ports__time">Den 4 · 8:00 – 20:00</span>
+                <h3 class="ports__city">Málaga</h3>
+                <p class="ports__desc">
+                  Picassovo město, hrad na kopci, pláže. Celý den na to. Klídek.
+                </p>
+              </div>
+            </div>
+
+            <div class="ports__stop ports__stop--right" data-stop="4">
+              <div class="ports__image-circle"><img src="assets/cadiz.jpg" alt="Cádiz" /></div>
+              <div class="ports__info">
+                <span class="ports__time">Den 5 · 7:00 – 16:00</span>
+                <h3 class="ports__city">Cádiz</h3>
+                <p class="ports__desc">
+                  Nejstarší město v Evropě. Úzký uličky, ryby na grilu, surf na Playa de la
+                  Victoria.
+                </p>
+              </div>
+            </div>
+
+            <div class="ports__stop ports__stop--left" data-stop="5">
+              <div class="ports__image-circle"><img src="assets/lisbon.webp" alt="Lisabon" /></div>
+              <div class="ports__info">
+                <span class="ports__time">Den 6 · 9:00 – 22:00</span>
+                <h3 class="ports__city">Lisabon</h3>
+                <p class="ports__desc">
+                  Celý den v Lisabonu. Pastéis de nata, tramvaj 28, Belém. Nejdelší zastávka.
+                </p>
+              </div>
+            </div>
+
+            <div class="ports__stop ports__stop--right" data-stop="6">
+              <div class="ports__image-circle">
+                <img src="assets/barcelona.webp" alt="Barcelona" />
+              </div>
+              <div class="ports__info">
+                <span class="ports__time">Den 8 · 8:00 příjezd</span>
+                <h3 class="ports__city">Barcelona</h3>
+                <p class="ports__desc">
+                  Zpátky tam, kde to celý začalo. Opálený, unavený, šťastný.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4: Jídlo & Pití -->
+        <section class="slide slide--food" data-slide="4">
+          <div class="food__layout">
+            <div class="food__left">
+              <h2 class="food__title">Jídlo &amp; Pití</h2>
+              <div class="food__info">
+                <div class="food__free">
+                  <h3 class="food__section-title">V ceně (zdarma, 24/7)</h3>
+                  <ul class="food__list">
+                    <li>Hlavní restaurace — 3chodové menu každý večer</li>
+                    <li>Bufet — snídaně, oběd, večeře, noční svačiny</li>
+                    <li>Pizzerie &amp; burger bar na palubě</li>
+                    <li>Room service (i ve 3 ráno, bez příplatku)</li>
+                    <li>Zmrzlina, dezerty, ovoce — non-stop</li>
+                  </ul>
+                </div>
+                <div class="food__extra">
+                  <h3 class="food__section-title food__section-title--extra">Za příplatek</h3>
+                  <ul class="food__list">
+                    <li>Steakhouse, sushi bar, italská restaurace</li>
+                    <li>Degustační menu od šéfkuchaře (~€35)</li>
+                    <li>Nápojový balíček — pivo, víno, koktejly (~€30/den)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="food__right">
+              <h3 class="food__day-title">Ukázkový den na palubě</h3>
+              <div class="food__timeline">
+                <div class="food__event" data-event="1">
+                  <span class="food__time">7:30</span>
+                  <span class="food__desc">Předsnídaňové pivo na balkoně</span>
+                  <span class="food__beer">🍺</span>
+                </div>
+                <div class="food__event" data-event="2">
+                  <span class="food__time">8:00</span>
+                  <span class="food__desc">Snídaně — bufet, omelety, slanina</span>
+                  <span class="food__beer"></span>
+                </div>
+                <div class="food__event" data-event="3">
+                  <span class="food__time">10:00</span>
+                  <span class="food__desc">Pivo u bazénu</span>
+                  <span class="food__beer">🍺</span>
+                </div>
+                <div class="food__event" data-event="4">
+                  <span class="food__time">11:30</span>
+                  <span class="food__desc">Pivo na tobogánu (dole, ne nahoře)</span>
+                  <span class="food__beer">🍺</span>
+                </div>
+                <div class="food__event" data-event="5">
+                  <span class="food__time">12:30</span>
+                  <span class="food__desc">Oběd + dvě piva</span>
+                  <span class="food__beer">🍺🍺</span>
+                </div>
+                <div class="food__event" data-event="6">
+                  <span class="food__time">14:00</span>
+                  <span class="food__desc">Pivo na sluníčku</span>
+                  <span class="food__beer">🍺</span>
+                </div>
+                <div class="food__event" data-event="7">
+                  <span class="food__time">16:00</span>
+                  <span class="food__desc">Pivo u vířivky</span>
+                  <span class="food__beer">🍺</span>
+                </div>
+                <div class="food__event" data-event="8">
+                  <span class="food__time">17:30</span>
+                  <span class="food__desc">Pivo se západem slunce</span>
+                  <span class="food__beer">🍺</span>
+                </div>
+                <div class="food__event" data-event="9">
+                  <span class="food__time">19:00</span>
+                  <span class="food__desc">Večeře — 3 chody + láhev vína</span>
+                  <span class="food__beer">🍷</span>
+                </div>
+                <div class="food__event" data-event="10">
+                  <span class="food__time">21:00</span>
+                  <span class="food__desc">Pivo u večerní show</span>
+                  <span class="food__beer">🍺</span>
+                </div>
+                <div class="food__event" data-event="11">
+                  <span class="food__time">23:00</span>
+                  <span class="food__desc">Noční pivo na baru + karaoke</span>
+                  <span class="food__beer">🍺</span>
+                </div>
+                <div class="food__event" data-event="12">
+                  <span class="food__time">1:00</span>
+                  <span class="food__desc">Pizza + zavírací pivo</span>
+                  <span class="food__beer">🍺</span>
+                </div>
+              </div>
+              <p class="food__total">Celkem: 12× 🍺 + 1× 🍷 = dokonalý den</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5: Cena -->
+        <section class="slide slide--price" data-slide="5">
+          <div class="price__layout">
+            <h2 class="price__title">Co to stojí?</h2>
+            <p class="price__subtitle">Spoiler: míň, než byste čekali.</p>
+
+            <div class="price__cards">
+              <div class="price__card" data-tier="interior">
+                <div class="price__badge">Šetřílek</div>
+                <h3 class="price__tier">Vnitřní kajuta</h3>
+                <div class="price__amount">
+                  &euro;450<span class="price__per">/os (2 lidi)</span>
+                </div>
+                <p class="price__note">
+                  Žádný okno, ale kdo se tam bude dívat? 3.-4. člověk platí jen ~&euro;200.
+                </p>
+                <div class="price__value">
+                  <span class="price__value-label">Hodnota za prachy</span>
+                  <div class="price__bar"><div class="price__bar-fill" data-width="90"></div></div>
+                </div>
+              </div>
+
+              <div class="price__card price__card--featured" data-tier="balcony">
+                <div class="price__badge">Nejlepší volba</div>
+                <h3 class="price__tier">Balkon</h3>
+                <div class="price__amount">
+                  &euro;750<span class="price__per">/os (2 lidi)</span>
+                </div>
+                <p class="price__note">
+                  Ráno kafe s výhledem na moře. 3.-4. člověk ~&euro;300. Pořád worth it.
+                </p>
+                <div class="price__value">
+                  <span class="price__value-label">Hodnota za prachy</span>
+                  <div class="price__bar"><div class="price__bar-fill" data-width="95"></div></div>
+                </div>
+              </div>
+
+              <div class="price__card" data-tier="suite">
+                <div class="price__badge">Bouráku</div>
+                <h3 class="price__tier">Suite</h3>
+                <div class="price__amount">
+                  &euro;1 400<span class="price__per">/os (2 lidi)</span>
+                </div>
+                <p class="price__note">
+                  Vlastní obývák, vířivka na balkoně. 3.-4. člověk ~&euro;550. Rozdělit se dá.
+                </p>
+                <div class="price__value">
+                  <span class="price__value-label">Hodnota za prachy</span>
+                  <div class="price__bar"><div class="price__bar-fill" data-width="55"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="price__includes">
+              <div class="price__inc-col">
+                <h4 class="price__inc-title price__inc-title--yes">V ceně</h4>
+                <ul class="price__inc-list">
+                  <li>Ubytování (8 nocí)</li>
+                  <li>Jídlo — all you can eat, 24/7</li>
+                  <li>Bazény, tobogány, fitness</li>
+                  <li>Večerní show a entertainment</li>
+                  <li>Zastávky v 6 městech</li>
+                </ul>
+              </div>
+              <div class="price__inc-col">
+                <h4 class="price__inc-title price__inc-title--no">Mimo cenu</h4>
+                <ul class="price__inc-list">
+                  <li>Alkohol (balíček ~€30/den)</li>
+                  <li>Výlety na pevnině</li>
+                  <li>WiFi (ale kdo ho potřebuje)</li>
+                  <li>Spa &amp; masáže</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6: Casino -->
+        <section class="slide slide--casino" data-slide="6">
+          <div class="casino__layout">
+            <h2 class="casino__title">"Ale Marty, to je na mě moc drahý..."</h2>
+            <p class="casino__subtitle">
+              Na palubě je kasino. Jeden dobrý večer a plavba se zaplatí sama.
+            </p>
+
+            <div class="casino__machine">
+              <div class="casino__body">
+                <div class="casino__display">
+                  <div class="casino__reel" id="reel1">
+                    <div class="casino__strip">
+                      <span>🍒</span><span>🍋</span><span>🍊</span><span>🍇</span><span>7️⃣</span>
+                      <span>🍌</span><span>🍒</span><span>🍋</span><span>🍊</span><span>🍇</span>
+                      <span>7️⃣</span><span>🍌</span><span>🍒</span><span>🍋</span><span>🍊</span>
+                      <span>🍇</span><span>7️⃣</span><span>🍌</span><span>🍒</span><span>🍋</span>
+                      <span>🍌</span>
+                    </div>
+                  </div>
+                  <div class="casino__reel" id="reel2">
+                    <div class="casino__strip">
+                      <span>🍊</span><span>🍇</span><span>7️⃣</span><span>🍒</span><span>🍋</span>
+                      <span>🍌</span><span>🍊</span><span>🍇</span><span>7️⃣</span><span>🍒</span>
+                      <span>🍋</span><span>🍌</span><span>🍊</span><span>🍇</span><span>7️⃣</span>
+                      <span>🍒</span><span>🍋</span><span>🍌</span><span>🍊</span><span>🍇</span>
+                      <span>🍌</span>
+                    </div>
+                  </div>
+                  <div class="casino__reel" id="reel3">
+                    <div class="casino__strip">
+                      <span>🍇</span><span>7️⃣</span><span>🍒</span><span>🍋</span><span>🍊</span>
+                      <span>🍌</span><span>🍇</span><span>7️⃣</span><span>🍒</span><span>🍋</span>
+                      <span>🍊</span><span>🍌</span><span>🍇</span><span>7️⃣</span><span>🍒</span>
+                      <span>🍋</span><span>🍊</span><span>🍌</span><span>🍇</span><span>7️⃣</span>
+                      <span>🍌</span>
+                    </div>
+                  </div>
+                  <div class="casino__reel" id="reel4">
+                    <div class="casino__strip">
+                      <span>🍋</span><span>🍒</span><span>🍊</span><span>7️⃣</span><span>🍇</span>
+                      <span>🍌</span><span>🍋</span><span>🍒</span><span>🍊</span><span>7️⃣</span>
+                      <span>🍇</span><span>🍌</span><span>🍋</span><span>🍒</span><span>🍊</span>
+                      <span>7️⃣</span><span>🍇</span><span>🍌</span><span>🍋</span><span>🍒</span>
+                      <span>🍌</span>
+                    </div>
+                  </div>
+                  <div class="casino__reel" id="reel5">
+                    <div class="casino__strip">
+                      <span>7️⃣</span><span>🍊</span><span>🍇</span><span>🍒</span><span>🍋</span>
+                      <span>🍌</span><span>7️⃣</span><span>🍊</span><span>🍇</span><span>🍒</span>
+                      <span>🍋</span><span>🍌</span><span>7️⃣</span><span>🍊</span><span>🍇</span>
+                      <span>🍒</span><span>🍋</span><span>🍌</span><span>7️⃣</span><span>🍊</span>
+                      <span>🍌</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="casino__lever" id="casinoLever">
+                  <div class="casino__lever-stick"></div>
+                  <div class="casino__lever-knob"></div>
+                </div>
+              </div>
+              <div class="casino__jackpot" id="casinoJackpot">JACKPOT!</div>
+            </div>
+
+            <ul class="casino__tips" id="casinoTips">
+              <li>Ztratit můžeš 100 %, ale vyhrát můžeš 1000 %. Matematika jasná.</li>
+              <li>There are winners, and there are quitters.</li>
+              <li>Kasino na lodi má lepší odds než Tipáč.</li>
+              <li>Co se stane na lodi, zůstane na lodi.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Slide 7: Závěr -->
+        <section class="slide slide--finale" data-slide="7">
+          <div class="slide__content">
+            <h1 class="finale__heading">Buďme pro jednou na jedný lodi.</h1>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Progress indicator -->
+    <div class="progress" id="progress">
+      <div class="progress__bar" id="progressBar"></div>
+    </div>
+
+    <!-- Slide counter -->
+    <div class="slide-counter" id="slideCounter">
+      <span id="currentSlideNum">1</span> / <span id="totalSlideNum">8</span>
+    </div>
+
+    <!-- Navigation hint -->
+    <div class="nav-hint" id="navHint">
+      <span class="nav-hint__key">&larr;</span>
+      <span class="nav-hint__key">&rarr;</span>
+      <span class="nav-hint__text">Navigace</span>
+    </div>
+
+    <!-- GSAP from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
