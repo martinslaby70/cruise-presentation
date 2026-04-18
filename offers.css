@@ -150,6 +150,33 @@ body {
   margin-bottom: 0.75rem;
 }
 
+.offers__notice-list {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  font-size: 1rem;
+  color: var(--color-cream);
+}
+
+.offers__notice-list li {
+  margin: 0.35rem 0;
+  line-height: 1.6;
+}
+
+.offers__notice-list li::marker {
+  color: var(--color-gold);
+}
+
+.offers__notice-heading {
+  margin-top: 1.5rem !important;
+  letter-spacing: 0.15em;
+  color: var(--color-gold-light) !important;
+  font-size: 0.95rem !important;
+}
+
+.offers__notice-heading strong {
+  color: var(--color-gold-light) !important;
+}
+
 .offers__section--final {
   background: rgba(46, 125, 140, 0.06);
   border: 1px solid rgba(46, 125, 140, 0.2);
@@ -307,6 +334,40 @@ body {
 .col-link {
   min-width: 180px;
   font-size: 0.8rem;
+}
+
+/* Tier divider rows */
+
+.offers__row--tier td {
+  padding: 0;
+}
+
+.offers__row--tier:hover {
+  background: transparent;
+}
+
+.offers__tier {
+  padding: 0.9rem 1rem !important;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  border-top: 1px solid rgba(201, 168, 76, 0.25);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+}
+
+.offers__tier--eco {
+  background: linear-gradient(90deg, rgba(46, 125, 140, 0.28), rgba(46, 125, 140, 0.08));
+}
+
+.offers__tier--mid {
+  background: linear-gradient(90deg, rgba(201, 168, 76, 0.28), rgba(201, 168, 76, 0.08));
+}
+
+.offers__tier--premium {
+  background: linear-gradient(90deg, rgba(180, 64, 64, 0.28), rgba(180, 64, 64, 0.08));
 }
 
 /* Featured row (eclipse) */
